@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- Font awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,12 +57,12 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet" >
-        <h2>Compose Tweet</h2>
+        <h2>What are you humming about?</h2>
 
         <div class="form">
         <form method="POST" action="/tweets" >
         <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+        <textarea name="text" id="tweet-text"></textarea>
 
         <div class="output-div">
           <button id="tweet-btn" type="submit">Tweet</button>
@@ -69,8 +70,54 @@
         </div>
         </form>
         </div>
-
       </section>
+
+      <article class="tweets">
+        <div id="tweet-header">
+          <h4>Newton</h4>
+          <h4>TweetHandle</h4>
+        </div>
+
+        <div id="tweet-content">
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptate asperiores ducimus et reiciendis error quod </span>
+        </div>
+
+        <div id="tweet-footer">
+          <div id="tweet-date">
+            <span>10 days ago</span>
+          </div>
+          <div class="tweet-options-container">
+            <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
+            <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
+            <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="tweets">
+        <div id="tweet-header">
+          <h4>Amy</h4>
+          <h4>AmysTweetHandle</h4>
+        </div>
+
+        <div id="tweet-content">
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptate  </span>
+        </div>
+
+        <div id="tweet-footer">
+          <div id="tweet-date">
+            <span>8 days ago</span>
+          </div>
+          <div class="tweet-options-container">
+            <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
+            <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
+            <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
+          </div>
+        </div>
+
+      </article>
+
     </main>
   </body>
 </html>

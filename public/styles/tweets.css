@@ -1,0 +1,38 @@
+.tweets {
+ height: auto;
+ width: 80%;
+ margin: auto;
+ border: 5px solid black;
+ background-color: #f4f1ec;
+ padding: 5px;
+ margin-bottom: 20px;
+}
+.tweets:hover {
+ box-shadow: 10px 10px grey;
+}
+
+#tweet-header {
+ padding-top: 5px;
+ display: flex;
+ justify-content: space-between;
+}
+
+#tweet-header h4 {
+ margin-top: 0;
+}
+
+#tweet-content {
+ padding: 5px 10px;
+ border-bottom: 5px solid black;
+}
+
+#tweet-footer {
+ padding: 10px;
+ display: flex;
+ justify-content: space-between;
+ font-size: 0.6em;
+}
+
+.tweet-options:hover {
+ color: #ff9900;
+}
