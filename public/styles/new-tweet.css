@@ -24,7 +24,7 @@ h2 {
  background-color: #4056a1;
  color: white;
 }
-#letter-counter {
+#letter-count-display {
  font-family: "Bungee", sans-serif;
 }
 
@@ -36,4 +36,9 @@ h2 {
  background-color: #f4f1ec;
  margin: 0;
  padding: 0;
+}
+
+/* Red class for Tweets that exceeds limit */
+.red {
+ color: crimson;
 }
