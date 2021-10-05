@@ -25,6 +25,9 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <!-- timeago CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script src="/scripts/composer-char-counter.js"></script>
@@ -55,6 +58,7 @@
   
    
     <!-- Page-specific (main) content here -->
+    <!-- Tweet Input box -->
     <main class="container">
       <section class="new-tweet" >
         <h2>What are you humming about?</h2>
@@ -72,51 +76,15 @@
         </div>
       </section>
 
-      <article class="tweets">
-        <div id="tweet-header">
-          <h4>Newton</h4>
-          <h4>TweetHandle</h4>
-        </div>
+      <!-- Posted Tweets -->
 
-        <div id="tweet-content">
-          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptate asperiores ducimus et reiciendis error quod </span>
-        </div>
+      <article id="tweets-container">
 
-        <div id="tweet-footer">
-          <div id="tweet-date">
-            <span>10 days ago</span>
-          </div>
-          <div class="tweet-options-container">
-            <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
-            <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
-            <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
-          </div>
-        </div>
+       <!-- Inputted Tweets go here  -->
 
       </article>
 
-      <article class="tweets">
-        <div id="tweet-header">
-          <h4>Amy</h4>
-          <h4>AmysTweetHandle</h4>
-        </div>
-
-        <div id="tweet-content">
-          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptate  </span>
-        </div>
-
-        <div id="tweet-footer">
-          <div id="tweet-date">
-            <span>8 days ago</span>
-          </div>
-          <div class="tweet-options-container">
-            <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
-            <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
-            <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
-          </div>
-        </div>
-
-      </article>
+      
 
     </main>
   </body>
