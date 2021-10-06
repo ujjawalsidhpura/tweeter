@@ -90,5 +90,22 @@ const data = [
 
 $(document).ready(function () {
 
+  $('#tweet-form').on('submit', (e) => {
+    e.preventDefault();
+    const tweetDataString = $('#tweet-form').serialize();
+
+    console.log(tweetDataString);
+
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: tweetDataString
+    }).then((res) => {
+      console.log(res);
+    }).catch((e) => {
+      console.log(e)
+    })
+  })
+
   renderTweets(data);
 })
