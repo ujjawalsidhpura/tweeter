@@ -10,16 +10,3 @@ module.exports = db;
 
 
 
-//So actual structure of DB is db db = {
-//  tweets: [
-//     {
-//      tweets
-//     }
-//   ]
-// }
-
-// Since intial tweets = [
-//   {
-//     tweets
-//   }
-// ]

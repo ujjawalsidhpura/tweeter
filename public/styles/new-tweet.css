@@ -42,3 +42,12 @@ h2 {
 .red {
  color: crimson;
 }
+#error-container {
+ background-color: #ff9999;
+ padding: 10px;
+ text-align: center;
+}
+
+.alert {
+ display: none;
+}

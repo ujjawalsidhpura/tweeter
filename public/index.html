@@ -57,13 +57,19 @@
     </header>
   
    
+   
     <!-- Page-specific (main) content here -->
     <!-- Tweet Input box -->
     <main class="container">
       <section class="new-tweet" >
-        <h2>What are you humming about?</h2>
+        <h3>What are you humming about?</h3>
 
+        <div id="error-container" class="alert">
+          <span id="error-span"></span>
+        </div>
+        
         <div class="form">
+
         <form id="tweet-form" method="POST" action="/tweets" >
         <!-- <label for="tweet-text">What are you humming about?</label> -->
         <textarea name="text" id="tweet-text"></textarea>
@@ -72,8 +78,9 @@
           <button id="tweet-btn" type="submit">Tweet</button>
           <output id="letter-count-display" name="counter" class="counter" for="tweet-text"></output>
         </div>
-        
+
         </form>
+
         </div>
       </section>
 

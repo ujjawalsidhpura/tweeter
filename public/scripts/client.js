@@ -4,108 +4,118 @@
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 //  */
 
-const createTweetElement = function (data) {
-
-  let tweet = `
-  
-  <div id="tweet-header">
-    <h4>${data.user.name}</h4>
-    <h4>${data.user.handle}</h4>
-  </div>
-
-  <div id="tweet-content">
-    <span>${data.content.text}</span>
-  </div>
-
-  <div id="tweet-footer">
-    <div id="tweet-date">
-      <span>${timeago.format(data.created_at)}</span>
-    </div>
-    <div class="tweet-options-container">
-      <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
-      <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
-      <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
-    </div>
-  </div> 
- 
-`
-  return tweet;
-};
-
-const renderTweets = function (arr) {
-  arr.forEach((tweetObj) => {
-    let tweet = createTweetElement(tweetObj);
-    $('#tweets-container').append(tweet)
-  })
-}
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Xyz",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@xxx"
-    },
-    "content": {
-      "text": "A test tweet is a test tweet."
-    },
-    "created_at": 14611139590
-  },
-  {
-    "user": {
-      "name": "abc",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@abc"
-    },
-    "content": {
-      "text": "Another test huh"
-    },
-    "created_at": 14611111390
-  }
-]
-
-
 $(document).ready(function () {
+
+  ////////////Helper Func to create and insert Tweets////////////
+
+
+  const createTweetElement = function (data) {
+
+    //Func to check for XSS attack
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
+    const safeTweet = escape(data.content.text);
+
+    let tweet = `
+    
+    <div id="tweet-header">
+      <h4>${data.user.name}</h4>
+      <h4>${data.user.handle}</h4>
+    </div>
+  
+    <div id="tweet-content">
+      <span>${safeTweet}</span>
+    </div>
+  
+    <div id="tweet-footer">
+      <div id="tweet-date">
+        <span>${timeago.format(data.created_at)}</span>
+      </div>
+      <div class="tweet-options-container">
+        <i id="tweet-flag-btn" class="fas fa-flag tweet-options"></i>
+        <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
+        <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
+      </div>
+    </div> 
+   
+  `
+    return tweet;
+  };
+
+  const renderTweets = function (arr) {
+
+    $('#tweets-container').empty();
+
+    arr.forEach((tweetObj) => {
+      let tweet = createTweetElement(tweetObj);
+      $('#tweets-container').append(tweet)
+    })
+  }
+
+  const validateTweet = function (tweet) {
+
+    if (tweet.trim().length <= 0) {
+      // alert('A tweet has to be atleast 1 character long! ')
+      // return false;
+      $('#error-container').removeClass('alert').text('Tweet has to be atleast one character long');
+      return false;
+    } else if (tweet.length > 140) {
+      // alert('Maximum 140 characters alllowed !!')
+      // return false;
+      $('#error-container').removeClass('alert').text('Maximum 140  characters allowed in a Tweet.');
+      return false;
+    }
+
+    return true;
+  }
+
+  //////////////////  AJAX GET and POST requests //////////////////////////
+
+  const loadTweets = function () {
+
+    $.get('/tweets', (res) => {
+      renderTweets(res);
+    })
+
+  }
+
+
+  $('#tweet-form').on('input', () => {
+    //Removes error message upon input in textarea
+    $('#error-container').addClass('alert')
+    $('#error-span').empty();
+  })
 
   $('#tweet-form').on('submit', (e) => {
     e.preventDefault();
-    const tweetDataString = $('#tweet-form').serialize();
 
-    console.log(tweetDataString);
+    const inputTweet = $('#tweet-text').val();
 
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: tweetDataString
-    }).then((res) => {
-      console.log(res);
-    }).catch((e) => {
-      console.log(e)
-    })
+    let test = validateTweet(inputTweet);
+
+    //Only post the Tweet IF it is validated. OR else throw Alert
+    if (test) {
+      const tweetDataString = $('#tweet-form').serialize();
+
+      $.post('/tweets', tweetDataString)
+        .then(() => {
+          //Clear the input field
+          $('#tweet-text').val('');
+          //Reload tweets including the one that got inputted
+          loadTweets();
+        })
+
+    } else {
+      validateTweet(inputTweet);
+    }
+
   })
 
-  renderTweets(data);
+  //Load Tweets with every Refresh
+  loadTweets();
+
 })
