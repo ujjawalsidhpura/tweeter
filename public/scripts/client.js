@@ -21,10 +21,11 @@ $(document).ready(function () {
     const safeTweet = escape(data.content.text);
 
     let tweet = `
-    
+    <article id="each-tweet">
     <div id="tweet-header">
-      <h4>${data.user.name}</h4>
-      <h4>${data.user.handle}</h4>
+    <h4><img id="avatar-img" src="${data.user.avatars}">
+       ${data.user.name}</h4>
+       <h4>${data.user.handle}</h4>
     </div>
   
     <div id="tweet-content">
@@ -41,6 +42,7 @@ $(document).ready(function () {
         <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
       </div>
     </div> 
+    </article>
    
   `
     return tweet;
@@ -72,6 +74,14 @@ $(document).ready(function () {
 
     return true;
   }
+  /////////////////////////////////////////////////////////
+
+  $('#scroll-btn').on('click', () => {
+    $('html,body').animate({
+      scrollTop: 0
+    }, 'slow');
+    $('#tweet-text').focus();
+  })
 
   //////////////////  AJAX GET and POST requests //////////////////////////
 

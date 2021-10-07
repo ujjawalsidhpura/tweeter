@@ -38,6 +38,10 @@ h2 {
  padding: 0;
 }
 
+#tweet-text:focus {
+ outline: none;
+}
+
 /* Red class for Tweets that exceeds limit */
 .red {
  color: crimson;
