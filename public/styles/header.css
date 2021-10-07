@@ -6,7 +6,7 @@ header {
  width: 100%;
  justify-content: center;
  background-color: #5fbbed;
- background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+ /* background-image: url("https://www.transparenttextures.com/patterns/always-grey.png"); */
 
  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

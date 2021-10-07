@@ -1,7 +1,6 @@
 #navbar {
  height: 60px;
  width: 100%;
- background-color: #4056a1;
  color: #ffffff;
  padding: 0 1.5em;
  display: flex;
@@ -9,6 +8,9 @@
  align-items: center;
  position: sticky;
  top: 0px;
+ /* background-color: #4056a1; */
+ background-color: #5fbbed;
+ /* background-image: url("https://www.transparenttextures.com/patterns/always-grey.png"); */
 }
 
 .nav-right {
@@ -28,4 +30,5 @@
 
 #scroll-btn:hover {
  cursor: pointer;
+ color: #ffffff;
 }

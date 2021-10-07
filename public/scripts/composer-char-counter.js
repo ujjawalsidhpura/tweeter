@@ -1,11 +1,13 @@
+
 $(document).ready(function () {
+
   //On every Refresh
   const maxLength = 140;
   $('#letter-count-display').text(maxLength);
 
   $('#tweet-text').on('input', (e) => {
-    const target = e.currentTarget;
-    const currentLength = target.value.length;
+    const targetText = e.currentTarget.value;
+    const currentLength = targetText.length;
     const displayLength = maxLength - currentLength;
 
     //Makes displayer RED

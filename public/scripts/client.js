@@ -6,8 +6,7 @@
 
 $(document).ready(function () {
 
-  ////////////Helper Func to create and insert Tweets////////////
-
+  //////////// Helper Func to create and insert Tweets////////////
 
   const createTweetElement = function (data) {
 
@@ -18,14 +17,19 @@ $(document).ready(function () {
       return div.innerHTML;
     };
 
+    //Check for Input tweet for XSS attack and then insert it into HTML
     const safeTweet = escape(data.content.text);
 
     let tweet = `
     <article id="each-tweet">
     <div id="tweet-header">
-    <h4><img id="avatar-img" src="${data.user.avatars}">
-       ${data.user.name}</h4>
-       <h4>${data.user.handle}</h4>
+    <div id="tweet-header-left">
+    <img id="avatar-img" src="${data.user.avatars}">
+    <h4>${data.user.name}</h4>
+    </div>
+    <div id="tweet-header-right">
+    <h4>${data.user.handle}</h4>
+    </div>
     </div>
   
     <div id="tweet-content">
@@ -61,13 +65,9 @@ $(document).ready(function () {
   const validateTweet = function (tweet) {
 
     if (tweet.trim().length <= 0) {
-      // alert('A tweet has to be atleast 1 character long! ')
-      // return false;
       $('#error-container').removeClass('alert').text('Tweet has to be atleast one character long');
       return false;
     } else if (tweet.length > 140) {
-      // alert('Maximum 140 characters alllowed !!')
-      // return false;
       $('#error-container').removeClass('alert').text('Maximum 140  characters allowed in a Tweet.');
       return false;
     }
@@ -109,14 +109,21 @@ $(document).ready(function () {
 
     //Only post the Tweet IF it is validated. OR else throw Alert
     if (test) {
+
       const tweetDataString = $('#tweet-form').serialize();
 
       $.post('/tweets', tweetDataString)
         .then(() => {
+
+          //Reset the letter count
+          const maxLength = 140;
+          $('#letter-count-display').text(maxLength);
+
           //Clear the input field
           $('#tweet-text').val('');
           //Reload tweets including the one that got inputted
           loadTweets();
+
         })
 
     } else {

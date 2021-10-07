@@ -3,6 +3,8 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -45,8 +47,9 @@
       </div>
     </nav>
 
-    
-    <header>
+    <div id="main">
+
+    <header class="header">
       <div class="header-div">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -60,10 +63,10 @@
    
     <!-- Page-specific (main) content here -->
     <!-- Tweet Input box -->
+
     <main class="container">
       <section class="new-tweet" >
-        <h3>What are you humming about?</h3>
-
+      
         <div id="error-container" class="alert">
           <span id="error-span"></span>
         </div>
@@ -71,8 +74,8 @@
         <div class="form">
 
         <form id="tweet-form" method="POST" action="/tweets" >
-        <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="text" id="tweet-text"></textarea>
+        
+        <textarea name="text" id="tweet-text" placeholder="What are you humming about? "></textarea>
 
         <div class="output-div">
           <button id="tweet-btn" type="submit">Tweet</button>
@@ -95,5 +98,7 @@
       
 
     </main>
+  </div>
+
   </body>
 </html>

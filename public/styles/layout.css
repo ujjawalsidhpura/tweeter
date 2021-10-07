@@ -19,7 +19,7 @@ html {
 body {
  color: #545149;
  background-color: #f4f1ec;
- font-size: 24px;
+ font-size: 20px;
  font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -27,8 +27,45 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-.container {
- width: 90%;
- margin: auto;
- background-color: #f4f1ec;
+/* Responsive design */
+
+@media (min-width: 768px) {
+ body {
+  font-size: 24px;
+ }
+
+ #main {
+  width: 100%;
+  margin: auto;
+  background-color: #f4f1ec;
+ }
+}
+
+@media (min-width: 1024px) {
+ body {
+  font-size: 24px;
+  font-size: 21px;
+  width: 1024px;
+  margin: 0 auto;
+ }
+
+ #main {
+  display: flex;
+ }
+
+ .header {
+  position: sticky;
+  top: 85px; /*(60px nav + 25px margin top)*/
+  width: 40%;
+  margin-top: 25px;
+ }
+ .container {
+  width: 60%;
+  margin-top: 25px;
+ }
+
+ #navbar {
+  position: sticky;
+  top: 0px;
+ }
 }
