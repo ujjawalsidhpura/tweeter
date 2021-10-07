@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-  //On every Refresh
+  //On every Refresh, reset the character count
   const maxLength = 140;
   $('#letter-count-display').text(maxLength);
 

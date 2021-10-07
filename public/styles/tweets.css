@@ -1,3 +1,4 @@
+/* For entire tweet container */
 #tweets-container {
  height: auto;
  width: 80%;
@@ -6,6 +7,24 @@
  padding: 10px;
  margin-bottom: 20px;
 }
+
+#avatar-img {
+ width: 2.2rem;
+ height: 2.2rem;
+}
+
+/* Each tweet is the entire tweet body inserted via jQuery into tweet-container */
+
+#each-tweet {
+ border: 2px solid black;
+ margin-bottom: 10px;
+}
+
+#each-tweet:hover {
+ box-shadow: 5px 5px grey;
+}
+
+/* Tweet header has two divs, left and right */
 
 #tweet-header {
  width: 95%;
@@ -19,6 +38,7 @@
  align-items: center;
  padding: 0 5px;
 }
+
 #tweet-header-left h4 {
  padding: 0 10px;
 }
@@ -28,12 +48,16 @@
  padding: 0 5px;
 }
 
+/* Tweet itself */
+
 #tweet-content {
  margin: auto;
  width: 95%;
  padding: 5px 10px;
  border-bottom: 5px solid black;
 }
+
+/* Footer items for tweet body */
 
 #tweet-footer {
  margin: auto;
@@ -47,18 +71,4 @@
 .tweet-options:hover {
  color: #ff9900;
  cursor: pointer;
-}
-
-#avatar-img {
- width: 2.2rem;
- height: 2.2rem;
-}
-
-#each-tweet {
- border: 2px solid black;
- margin-bottom: 10px;
-}
-
-#each-tweet:hover {
- box-shadow: 5px 5px grey;
 }

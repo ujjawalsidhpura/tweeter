@@ -10,33 +10,34 @@ $(document).ready(function () {
 
   const createTweetElement = function (data) {
 
-    //Func to check for XSS attack
+    //Func to clean the input to make it XSS proof
     const escape = function (str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     };
 
-    //Check for Input tweet for XSS attack and then insert it into HTML
+    //Clean the Input tweet for XSS attack and then insert it into HTML
     const safeTweet = escape(data.content.text);
 
+    //TweetBody HTML//
     let tweet = `
     <article id="each-tweet">
-    <div id="tweet-header">
-    <div id="tweet-header-left">
-    <img id="avatar-img" src="${data.user.avatars}">
-    <h4>${data.user.name}</h4>
-    </div>
-    <div id="tweet-header-right">
-    <h4>${data.user.handle}</h4>
-    </div>
-    </div>
+     <div id="tweet-header">
+       <div id="tweet-header-left">
+         <img id="avatar-img" src="${data.user.avatars}">
+         <h4>${data.user.name}</h4>
+       </div>
+       <div id="tweet-header-right">
+         <h4>${data.user.handle}</h4>
+       </div>
+     </div>
   
-    <div id="tweet-content">
+     <div id="tweet-content">
       <span>${safeTweet}</span>
-    </div>
+     </div>
   
-    <div id="tweet-footer">
+     <div id="tweet-footer">
       <div id="tweet-date">
         <span>${timeago.format(data.created_at)}</span>
       </div>
@@ -45,7 +46,7 @@ $(document).ready(function () {
         <i id="retweet-btn" class="fas fa-retweet tweet-options"></i>
         <i id="tweet-like-btn" class="fas fa-heart tweet-options"></i>
       </div>
-    </div> 
+     </div> 
     </article>
    
   `
@@ -74,7 +75,7 @@ $(document).ready(function () {
 
     return true;
   }
-  /////////////////////////////////////////////////////////
+  ////////////////////  Scroll to Top and Focus on TextArea  ////////////////////
 
   $('#scroll-btn').on('click', () => {
     $('html,body').animate({
@@ -83,7 +84,7 @@ $(document).ready(function () {
     $('#tweet-text').focus();
   })
 
-  //////////////////  AJAX GET and POST requests //////////////////////////
+  //////////////////  AJAX GET and POST requests  /////////////////////////
 
   const loadTweets = function () {
 

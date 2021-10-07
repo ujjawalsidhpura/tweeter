@@ -12,9 +12,7 @@ html {
  box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+/* Global Layout */
 
 body {
  color: #545149;
@@ -22,10 +20,6 @@ body {
  font-size: 20px;
  font-family: "Source Sans Pro", sans-serif;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
 /* Responsive design */
 
@@ -59,6 +53,7 @@ body {
   width: 40%;
   margin-top: 25px;
  }
+
  .container {
   width: 60%;
   margin-top: 25px;

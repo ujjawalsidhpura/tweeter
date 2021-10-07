@@ -53,7 +53,7 @@ h2 {
  outline: none;
 }
 
-/* Red class for Tweets that exceeds fail tweetValidation func test */
+/* For error messages upon Tweet validation fail */
 
 .red {
  color: crimson;
