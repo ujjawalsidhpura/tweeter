@@ -4,11 +4,11 @@ Tweeter is, well, let's be honest. Tweeter is here to give some strong competiti
 
 ## This is how it looks.
 
-!["This is a talbet look"]()
+!["This is a talbet look"](https://github.com/ujjawalsidhpura/tweeter/blob/master/docs/tabletLook.png?raw=true)
 
-!["This is a desktop look"]()
+!["This is a desktop look"](https://github.com/ujjawalsidhpura/tweeter/blob/master/docs/desktop.png?raw=true)
 
-!["An error for tweet validation"]()
+!["An error for tweet validation"](https://github.com/ujjawalsidhpura/tweeter/blob/master/docs/error.png?raw=true)
 
 ## Dependencies
 
