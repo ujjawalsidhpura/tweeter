@@ -55,6 +55,7 @@
  width: 95%;
  padding: 5px 10px;
  border-bottom: 5px solid black;
+ overflow-wrap: break-word; /* if input tweet is 140 characters without a space, this will prevent its overflow outside Div container */
 }
 
 /* Footer items for tweet body */

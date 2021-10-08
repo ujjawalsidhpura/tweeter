@@ -34,7 +34,7 @@ $(document).ready(function () {
      </div>
   
      <div id="tweet-content">
-      <span>${safeTweet}</span>
+      ${safeTweet}
      </div>
   
      <div id="tweet-footer">
@@ -122,6 +122,8 @@ $(document).ready(function () {
 
           //Clear the input field
           $('#tweet-text').val('');
+          //Get focus back on Text-Area
+          $('#tweet-text').focus();
           //Reload tweets including the one that got inputted
           loadTweets();
 
