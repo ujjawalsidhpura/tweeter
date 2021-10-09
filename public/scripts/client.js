@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     arr.forEach((tweetObj) => {
       let tweet = createTweetElement(tweetObj);
-      $('#tweets-container').append(tweet)
+      $('#tweets-container').prepend(tweet)
     })
   }
 
